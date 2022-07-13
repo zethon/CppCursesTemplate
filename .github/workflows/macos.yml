@@ -19,6 +19,12 @@ on:
 jobs:
   build-macos:
     runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Debug, Release]
+    env:
+      BUILD_TYPE: ${{ matrix.build_type }}
     steps:
     - uses: actions/checkout@v2
       with:
