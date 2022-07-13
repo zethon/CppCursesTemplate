@@ -32,6 +32,7 @@ jobs:
 
     - name: Upgrading CMake
       run: |
+        ls -R
         brew upgrade cmake
         cmake --version
 

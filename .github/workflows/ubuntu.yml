@@ -28,11 +28,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install GCC10
+    - name: Install GCC11
       shell: bash
       run:  |
+            ls -R
             sudo apt update
-            sudo apt install gcc-10 g++-10
+            sudo apt install gcc-11 g++-11
 
     - name: Get Conan
       uses: turtlebrowser/get-conan@v1.0
@@ -48,8 +49,8 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_UNIT_TESTS=ON
       env:
-        CC:   gcc-10
-        CXX:  g++-10
+        CC:   gcc-11
+        CXX:  g++-11
 
     - name: Build
       working-directory: ${{github.workspace}}/build
