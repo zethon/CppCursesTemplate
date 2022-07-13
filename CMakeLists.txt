@@ -71,12 +71,10 @@ include(ExternalProject)
 ExternalProject_Add(
   libncurses
   SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ncurses
-  CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/ncurses/configure 
+  CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/ncurses/configure
   PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/ncurses
   BUILD_COMMAND make
   BUILD_IN_SOURCE 1
 )
-
-# find_package(ncurses)
 
 add_subdirectory(arctan)
