@@ -49,8 +49,9 @@ jobs:
       run: cmake -E make_directory ${{github.workspace}}/build
 
     - name: Configure CMake
+      shell: powershell
       working-directory: ${{github.workspace}}/build
-      run: cmake .. "-GVisual Studio 16 2019" -DCMAKE_BUILD_TYPE=Debug
+      run: cmake .. "-GVisual Studio 16 2019" -A x64 -DCMAKE_BUILD_TYPE=${env:BUILD_TYPE}
 
     - name: Build
       shell: bash
