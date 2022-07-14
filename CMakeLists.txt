@@ -74,6 +74,7 @@ ExternalProject_Add(
   CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/ncurses/configure
   PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/ncurses
   BUILD_COMMAND make
+  INSTALL_COMMAND cmake -E echo "Skipping install step."
   BUILD_IN_SOURCE 1
 )
 
