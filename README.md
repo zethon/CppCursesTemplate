@@ -6,7 +6,7 @@ This project uses C++20, and ncurses for Linux and Mac OS X, and pcurses for Win
 
 The project aims to:
 
-* `[ ]` Pull and link to ncurses on Linux and Mac OS X
-* `[ ]` Pull and link to pcurses on Windows
-* `[ ]` User Github actions to build on Windows, Mac and Ubuntu
+* `[x]` Pull and link to ncurses on Linux and Mac OS X
+* `[x]` Pull and link to pcurses on Windows
+* `[x]` User Github actions to build on Windows, Mac and Ubuntu
 
