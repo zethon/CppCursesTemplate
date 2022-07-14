@@ -35,11 +35,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       
-    - name: Checkout submodules
-      run: git submodule update --init --recursive
-
     - name: Get Conan
       uses: turtlebrowser/get-conan@v1.0
+
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
 
     - name: Add custom conan repo
       run: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
