@@ -74,17 +74,20 @@ if (WIN32)
 set(CURSES_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 string(REPLACE "\\" "/" CURSES_SRC_DIR "${CURSES_SRC_DIR}")
 
+message("ORIGINAL SRC: ${CMAKE_CURRENT_SOURCE_DIR}")
+message("NEW      SRC: ${CURSES_SRC_DIR}")
+
 include(ExternalProject)
 ExternalProject_Add(
   pdcurses
-  SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/PDCurses
+  SOURCE_DIR ${CURSES_SRC_DIR}/PDCurses
   CONFIGURE_COMMAND  cmake -E echo "Skipping configure step."
   BUILD_COMMAND cmake -E env PDCURSES_SRCDIR=${CURSES_SRC_DIR}/PDCurses nmake -f ${CURSES_SRC_DIR}/PDCurses/wincon/Makefile.vc
   INSTALL_COMMAND cmake -E echo "Skipping install step."
   BUILD_IN_SOURCE 1
 )
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PDCurses)
+include_directories(${CURSES_SRC_DIR}/PDCurses)
 
 else()
 
