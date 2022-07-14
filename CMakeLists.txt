@@ -74,9 +74,6 @@ if (WIN32)
 set(CURSES_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 string(REPLACE "\\" "/" CURSES_SRC_DIR "${CURSES_SRC_DIR}")
 
-message("ORIGINAL SRC: ${CMAKE_CURRENT_SOURCE_DIR}")
-message("NEW      SRC: ${CURSES_SRC_DIR}")
-
 include(ExternalProject)
 ExternalProject_Add(
   pdcurses
