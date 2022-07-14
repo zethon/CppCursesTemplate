@@ -64,8 +64,26 @@ if (MSVC)
     add_link_options(
         # eliminate a lot of debug linking errors
         /IGNORE:4099
+
+        /NODEFAULTLIB:library 
     )
 endif(MSVC)
+
+if (WIN32)
+
+include(ExternalProject)
+ExternalProject_Add(
+  pdcurses
+  SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/PDCurses
+  CONFIGURE_COMMAND  cmake -E echo "Skipping configure step."
+  BUILD_COMMAND cmake -E env PDCURSES_SRCDIR=${CMAKE_CURRENT_SOURCE_DIR}/PDCurses nmake -f ${CMAKE_CURRENT_SOURCE_DIR}/PDCurses/wincon/Makefile.vc
+  INSTALL_COMMAND cmake -E echo "Skipping install step."
+  BUILD_IN_SOURCE 1
+)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PDCurses)
+
+else()
 
 include(ExternalProject)
 ExternalProject_Add(
@@ -77,5 +95,8 @@ ExternalProject_Add(
   INSTALL_COMMAND cmake -E echo "Skipping install step."
   BUILD_IN_SOURCE 1
 )
+
+endif()
+
 
 add_subdirectory(src)
