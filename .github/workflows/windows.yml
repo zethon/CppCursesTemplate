@@ -1,6 +1,8 @@
 name: windows
 
 on:
+  schedule:
+    - cron: "0 0 * 1 *"
   push:
     branches:
       - master
@@ -10,7 +12,6 @@ on:
       - CMakeLists.txt
       - CMake/**
       - src/**
-      - tests/** 
   pull_request:
     paths:
       - .gitmodules
@@ -18,7 +19,6 @@ on:
       - CMakeLists.txt
       - CMake/**
       - src/**
-      - tests/**
 
 jobs:
   build-windows:

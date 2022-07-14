@@ -1,20 +1,24 @@
 name: ubuntu
 
 on:
+  schedule:
+    - cron: "0 0 * 1 *"
   push:
     branches:
       - master
     paths:
+      - .gitmodules
+      - .github/workflows/ubuntu.yml
       - CMakeLists.txt
       - CMake/**
       - src/**
-      - tests/**     
   pull_request:
     paths:
+      - .gitmodules
+      - .github/workflows/ubuntu.yml
       - CMakeLists.txt
       - CMake/**
       - src/**
-      - tests/**
 
 jobs:
   build-ubuntu:
