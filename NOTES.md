@@ -1,0 +1,3 @@
+### PR #2 - Adding Windows Actions
+
+I couldn't get environment variables to work in Powershell using `${env:VARIABLE}`, `$env:VARIABLE`, `${VARIABLE}` or `$VARIABLE`. Finally I was able to get the CMake configure step to work by using `bash` and insead of using the full path to the build strip, I just used `..`. I couldn't use the full path because the source directory has `\`, which need to be escaped, but my efforts to escape the strings did not work.

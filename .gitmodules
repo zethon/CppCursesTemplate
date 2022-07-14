@@ -1,3 +1,6 @@
 [submodule "ncurses"]
 	path = ncurses
 	url = https://github.com/mirror/ncurses
+[submodule "PDCurses"]
+	path = PDCurses
+	url = https://github.com/wmcbrine/PDCurses.git
