@@ -5,13 +5,13 @@ set(SOURCE_FILES
 set(HEADER_FILES
 )
 
-add_executable(arctan
+add_executable(main
     ${SOURCE_FILES}
     ${HEADER_FILES}
     ${RESOURCE_FILES}
 )
 
-target_link_libraries(arctan
+target_link_libraries(main
     PUBLIC
         ${CONAN_LIBS}
         ${CMAKE_SOURCE_DIR}/ncurses/lib/libform.a
@@ -21,7 +21,7 @@ target_link_libraries(arctan
         ${CMAKE_SOURCE_DIR}/ncurses/lib/libpanel.a
 )
 
-target_include_directories(arctan
+target_include_directories(main
 PUBLIC 
     ${CONAN_INCLUDE_DIRS}
 )
