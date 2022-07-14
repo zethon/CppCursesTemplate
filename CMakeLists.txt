@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 project(ttvg)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MACOSX_RPATH 1)
 
 # optional configuration
@@ -71,12 +71,11 @@ include(ExternalProject)
 ExternalProject_Add(
   libncurses
   SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ncurses
-  CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/ncurses/configure 
+  CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/ncurses/configure
   PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/ncurses
   BUILD_COMMAND make
+  INSTALL_COMMAND cmake -E echo "Skipping install step."
   BUILD_IN_SOURCE 1
 )
 
-# find_package(ncurses)
-
-add_subdirectory(arctan)
+add_subdirectory(src)
