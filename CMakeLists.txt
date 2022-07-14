@@ -78,4 +78,4 @@ ExternalProject_Add(
   BUILD_IN_SOURCE 1
 )
 
-add_subdirectory(arctan)
+add_subdirectory(src)
