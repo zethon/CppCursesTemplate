@@ -31,7 +31,6 @@ jobs:
     - name: Install GCC11
       shell: bash
       run:  |
-            ls -R
             sudo apt update
             sudo apt install gcc-11 g++-11
 
@@ -43,6 +42,11 @@ jobs:
       
     - name: Create Build Environment
       run: cmake -E make_directory ${{github.workspace}}/build
+
+    - name: Init Git Submodules
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: git submodule update --init --recursive
 
     - name: Configure CMake
       shell: bash

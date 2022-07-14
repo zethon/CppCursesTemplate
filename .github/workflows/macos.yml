@@ -32,7 +32,6 @@ jobs:
 
     - name: Upgrading CMake
       run: |
-        ls -R
         brew upgrade cmake
         cmake --version
 
@@ -41,6 +40,11 @@ jobs:
 
     - name: Create Build Environment
       run: cmake -E make_directory ${{github.workspace}}/build
+
+    - name: Init Git Submodules
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: git submodule update --init --recursive
 
     - name: Configure CMake
       shell: bash
